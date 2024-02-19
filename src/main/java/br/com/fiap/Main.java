@@ -13,6 +13,7 @@ public class Main {
 
         Produto produto = new Produto();
         produto.setNome( "Notebook HP" );
+        produto.setPreco(6999.99);
 
         manager.getTransaction().begin();
         manager.persist( produto );
