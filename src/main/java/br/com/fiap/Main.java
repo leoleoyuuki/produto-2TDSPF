@@ -4,19 +4,34 @@ import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
 
-public class Main {
+import java.time.DayOfWeek;
+import java.time.LocalDate;
+
+public class    Main {
 
     public static void main(String[] args) {
 
-        EntityManagerFactory factory = Persistence.createEntityManagerFactory( "fiap" );
+        String dia = LocalDate.now().getDayOfWeek().equals(DayOfWeek.THURSDAY) ? "casa" : "fiap";
+
+
+
+        EntityManagerFactory factory = Persistence.createEntityManagerFactory( dia );
         EntityManager manager = factory.createEntityManager();
 
+        Sabor sabor1 = new Sabor();
+        sabor1.setNome("Frango");
+        sabor1.setDescricao("Gosotosao");
+
+
         Produto produto = new Produto();
-        produto.setNome( "Notebook HP" );
-        produto.setPreco(6999.99);
+        produto.setNome( "Pizza" );
+        produto.setPreco(69.99);
+        produto.setSabor(sabor1);
+
 
         manager.getTransaction().begin();
         manager.persist( produto );
+        manager.persist(sabor1);
         manager.getTransaction().commit();
 
         factory.close();
