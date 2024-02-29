@@ -15,7 +15,7 @@ public class    Main {
 
     public static void main(String[] args) {
 
-        String dia = LocalDate.now().getDayOfWeek().equals(DayOfWeek.THURSDAY) ? "casa" : "fiap";
+        String dia = LocalDate.now().getDayOfWeek().equals(DayOfWeek.MONDAY) ? "fiap" : "casa";
 
 
 
