@@ -2,6 +2,7 @@ package br.com.fiap;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -9,10 +10,11 @@ import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Set;
 
+@Entity
+@Builder
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Entity
 @Table(name = "TB_2TDSPF_PRODUTO")
 public class Produto {
 
